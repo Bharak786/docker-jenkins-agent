@@ -6,8 +6,8 @@
 #### Docker Images
 
 - All images based on Fedora Linux
-- [GitHub actions builds](https://github.com/opcycle/jenkins/actions) 
-- [Docker Hub](https://hub.docker.com/r/opcycle/jenkins)
+- [GitHub actions builds](https://github.com/opcycle/docker-jenkins-agent/actions) 
+- [Docker Hub](https://hub.docker.com/r/opcycle/docker-jenkins-agent)
 
 
 
