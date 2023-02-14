@@ -9,7 +9,6 @@ RUN dnf -y install dnf-plugins-core \
     && dnf clean all
     
 RUN apt-get update \
-  && apt-get install -y openjdk-11-jdk \
-  && apt-get install -y curl \
-  && apt-get install -y net-tools \
-  && apt-get install -y telnet
+    && apt-get install -y curl \
+    && apt-get install -y net-tools \
+    && apt-get install -y telnet
