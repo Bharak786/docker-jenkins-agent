@@ -1,4 +1,6 @@
-FROM openjdk:11-jdk-slim
+ARG JAVA_VERSION
+
+FROM openjdk:${JAVA_VERSION}
     
 RUN apt-get update \
     && apt-get install -y curl \
