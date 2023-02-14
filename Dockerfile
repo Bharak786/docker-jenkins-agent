@@ -1,8 +1,7 @@
-ARG JAVA_VERSION
+ENV JAVA_VERSION 11
+ENV NET_TOOLS netstat telnet curl
 
-FROM openjdk:${JAVA_VERSION}
-    
-RUN apt-get update \
-    && apt-get install -y curl \
-    && apt-get install -y net-tools \
-    && apt-get install -y telnet
+RUN apt-get update && \
+    apt-get install -y $NET_TOOLS && \
+    apt-get install -y openjdk-${JAVA_VERSION}-jdk
+      
