@@ -1,8 +1,10 @@
-ARG JAVA_VERSION
+FROM debian AS java8
+RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-FROM openjdk:${JAVA_VERSION}
+FROM alpine AS java11
+RUN apk add openjdk11
 
-RUN apt-get update \
-    && apt-get install -y curl \
-    && apt-get install -y net-tools \
-    && apt-get install -y telnet
+FROM some-base-image
+COPY --from=java8 /usr/lib/jvm/java-8-openjdk-amd64/ /usr/lib/jvm/java-8-openjdk-amd64/
+COPY --from=java11 /usr/lib/jvm/java-11-openjdk/ /usr/lib/jvm/java-11-openjdk/
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
