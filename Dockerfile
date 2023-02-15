@@ -1,6 +1,6 @@
-FROM alpine:3.14
+FROM alpine:latest
 
-RUN apk update \
-    && apk add curl \
-    && apk add net-tools \
-    && apk add telnet
+RUN apk update && \
+    apk add net-tools && \
+    apk add telnet && \
+    apk add curl
