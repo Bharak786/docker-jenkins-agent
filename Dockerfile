@@ -1,5 +1,5 @@
 FROM debian AS java8
-RUN apt-get update && apt-get install -y openjdk-8-jdk
+RUN apt-get update && apt-get install -y openjdk-8
 
 FROM alpine AS java11
 RUN apk add openjdk11
