@@ -1,10 +1,8 @@
-FROM debian AS java8
-RUN apt-get update && apt-get install -y openjdk-8-jdk
+ENV JAVA_VERSION 11
+ENV NET_TOOLS netstat telnet curl
 
-FROM alpine AS java11
-RUN apk add openjdk11
-
-FROM some-base-image
-COPY --from=java8 /usr/local/java-8-openjdk-amd64/ /usr/local/java-8-openjdk-amd64/
-COPY --from=java11 /usr/local/java-11-openjdk/ /usr/local/java-11-openjdk/
-ENV JAVA_HOME=/usr/local/java-8-openjdk/
+RUN apt-get update && \
+    apt-get install -y $NET_TOOLS && \
+    apt-get install -y openjdk-${JAVA_VERSION}-jdk
+    
+RUN update-alternatives --set java /usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64/bin/java
